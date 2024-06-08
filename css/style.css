@@ -279,3 +279,51 @@ footer .footer-section a {
     border-radius: 10px;
     margin-left: 100px;
 }
+
+/* servicos */
+
+.servicos h3 {
+    text-align: center;
+}
+
+.servicos p {
+    text-align: center;
+}
+
+.servicos .todos-cards {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.servicos .todos-cards-item {
+    background-color: #d3e6fd;
+    width: 350px;
+    padding: 20px;
+    border-radius: 14px;
+    margin: 20px;
+    cursor: pointer;
+}
+
+.servicos .todos-cards-item:hover {
+    background-color: #4f9cf9;
+}
+
+.servicos .todos-cards-item:hover p{
+    color: white;
+}
+
+.servicos .todos-cards-item img {
+    width: 60px;
+    display: block;
+    margin: 0 auto;
+}
+
+.servicos .todos-cards-item p.nome-servico {
+    margin: 5px 0;
+    transition: 0.3s;
+}
+
+.servicos .todos-cards-item p.descricao-servico {
+    transition: 0.3s;
+}
