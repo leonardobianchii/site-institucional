@@ -113,3 +113,84 @@ nav ul a:hover:after {
     font-weight: bold;
     margin: 18px 0;
 }
+
+.saiba-mais .container {
+    display: flex;
+    align-items: center;
+}
+
+.saiba-mais .saiba-mais-texto {
+    width: 50%;
+    padding: 0 40px;
+}
+
+.saiba-mais .saiba-mais-img {
+    width: 50%;
+}
+
+.saiba-mais-img img {
+    width: 80%;
+    margin-left: 100px;
+    border-radius: 10px;
+}
+
+.saiba-mais .saiba-mais-texto h3 {
+    font-size: 56px;
+}
+
+.saiba-mais .saiba-mais-texto p {
+    margin: 5px 0 10px 0;
+}
+
+.depoimentos h3 {
+    text-align: center;
+}
+
+.depoimentos p {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+}
+
+.depoimentos .card-usuario {
+    background-color: #d3e6fd;
+    margin: 15px;
+    border-radius: 14px;
+    text-align: center;
+    width: 350px;
+    transition: 0.3s;
+}
+
+.depoimentos .card-usuario img {
+    border-radius: 100%;
+    width: 80px;
+    display: block;
+    margin: 10px auto;
+}
+
+.depoimentos .card-usuario:hover{
+    background-color: #4f9cf9;
+    margin-top: -5px;
+}
+
+.depoimentos .card-usuario:hover .nome-usuario,
+.depoimentos .card-usuario:hover .depoimento-usuario {
+    color: white;
+}
+
+.depoimentos .card-usuario .depoimento-usuario {
+    font-size: 15px;
+    padding: 0 15px;
+    transition: 0.3s;
+}
+
+.depoimentos .card-usuario .nome-usuario {
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 15px;
+    transition: 0.3s;
+}
