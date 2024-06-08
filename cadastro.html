@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>OceanGuard | Cadastro</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="./index.html">
+                    <img class="icone" src="./img/oceanguard-logo.png" alt="Logo">
+                </a>
+                <ul class="ul">
+                    <li>
+                        <a href="./index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="./about.html">Sobre</a>
+                    </li>
+                    <li>
+                        <a href="./servicos.html">Servicos</a>
+                    </li>
+                    <li>
+                        <a href="./#footer-container">Contato</a>
+                    </li>
+                    <li>
+                        <a class="btn" href="./login.html">Login</a> 
+                    </li>
+                </ul>
+            </nav>
+            <section class="banner">
+                <div class="banner-texto">
+                    <h1>Cadastre-se</h1>
+                    <p>Realize seu cadastro abaixo e faça parte do projeto</p>
+                </div>
+            </section>
+        </div>
+    </header>
+
+    <section id="cadastro">
+        <div class="container">
+            <form id="formularioCadastro" class="formulario" onsubmit="return validarCadastro()">
+                <div class="form-group">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" placeholder="Insira seu nome">
+                    <span id="erroNome" class="erro"></span>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Insira seu email (ex: teste@email.com)">
+                    <span id="erroEmail" class="erro"></span>
+                </div>
+                <div class="form-group">
+                    <label for="senha">Senha:</label>
+                    <input type="password" id="senha" name="senha" placeholder="Insira sua senha">
+                    <span id="erroSenha" class="erro"></span>
+                </div>
+                <div class="form-group">
+                    <label for="confirmaSenha">Confirme sua senha:</label>
+                    <input type="password" id="confirmaSenha" name="confirmaSenha" placeholder="Confirme sua senha">
+                    <span id="erroConfirmaSenha" class="erro"></span>
+                </div>
+                <div class="form-group">
+                    <label for="cpf">CPF:</label>
+                    <input type="text" id="cpf" name="cpf" placeholder="Insira seu CPF (ex: 123.456.789-10)">
+                    <span id="erroCpf" class="erro"></span>
+                </div>
+                <div class="form-group">
+                    <label for="telefone">Telefone:</label>
+                    <input type="tel" id="telefone" name="telefone" placeholder="Insira seu telefone (ex: (11)12345-6789)">
+                    <span id="erroTelefone" class="erro"></span>
+                </div>
+                <div class="form-group">
+                    <label for="cep">CEP:</label>
+                    <input type="text" id="cep" name="cep" placeholder="Insira seu CEP (ex: 01234-567)">
+                    <span id="erroCep" class="erro"></span>
+                </div>
+                <div class="form-group">
+                    <label for="cidade">Cidade:</label>
+                    <input type="text" id="cidade" name="cidade" placeholder="Insira sua cidade">
+                    <span id="erroCidade" class="erro"></span>
+                </div>
+                <div class="form-group">
+                    <label for="estado">Estado:</label>
+                    <input type="text" id="estado" name="estado" placeholder="Insira seu estado">
+                    <span id="erroEstado" class="erro"></span>
+                </div>
+                <button type="submit" class="btn-submit">Cadastrar</button>
+                <p id="mensagemSucesso" class="mensagem-sucesso"></p>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div id="footer-container">
+            <div class="footer-section">
+                <h3>Contato</h3>
+                <p>Email: leo-bianchi@hotmail.com</p>
+                <p>Telefone: (11)99412-3559</p>
+            </div>
+        
+            <div class="footer-section">
+                <h3>Redes Sociais</h3>
+                <a href="https://www.facebook.com">Facebook</a><br>
+                <a href="https://www.twitter.com">Twitter</a><br>
+                <a href="https://www.instagram.com">Instagram</a><br>
+            </div>
+        
+            <div class="footer-section">
+                <h3>Endereço</h3>
+                <p>Av. Paulista, 1106</p>
+                <p>Bela Vista, São Paulo</p>
+                <p>CEP: 01311-000</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./js/script.js"></script>
+</body>
+</html>
