@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <script defer src="./js/script.js"></script>
+    <title>OceanGuard | Serviços</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="./index.html">
+                    <img class="icone" src="./img/oceanguard-logo.png" alt="Logo">
+                </a>
+                <ul class="ul">
+                    <li>
+                        <a href="./index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="./about.html">Sobre</a>
+                    </li>
+                    <li>
+                        <a href="./ranking.html">Ranking</a>
+                    </li>
+                    <li>
+                        <a href="./#footer-container">Contato</a>
+                    </li>
+                    <li>
+                        <a class="btn" href="./login.html">Login</a> 
+                    </li>
+                </ul>
+            </nav>
+            <section class="banner">
+                <div class="banner-texto">
+                    <h1>Serviços</h1>
+                    <p>Conheça nossos produtos e participe do projeto</p>
+                </div>
+            </section>
+        </div>
+    </header>
+
+    <section class="servicos">
+        <div class="container">
+            <h3>Nossos serviços</h3>
+            <p>Confira abaixo os nossos melhores serviços</p>
+            <div class="todos-cards">
+                <div class="todos-cards-item" onclick="abrirModal('modalSoft')">
+                    <img src="./img/icon-software.png" alt="Icone relacionado a software">
+                    <p class="nome-servico"><strong>Nosso Software</strong></p>
+                    <p class="descricao-servico">Clique para saber mais...</p>
+                </div>
+                <div class="todos-cards-item" onclick="abrirModal('modalMerg')">
+                    <img src="./img/icon-mergulho.png" alt="Icone relacionado a mergulho">
+                    <p class="nome-servico"><strong>Mergulho pago</strong></p>
+                    <p class="descricao-servico">Clique para saber mais...</p>
+                </div>
+                <div class="todos-cards-item" onclick="abrirModal('modalMergGratis')">
+                    <img src="./img/icon-mergulho.png" alt="Icone relacionado a mergulho">
+                    <p class="nome-servico"><strong>Mergulho gratuito</strong></p>
+                    <p class="descricao-servico">Clique para saber mais...</p>
+                </div>
+            </div>
+        </div>
+    </section>
