@@ -327,3 +327,109 @@ footer .footer-section a {
 .servicos .todos-cards-item p.descricao-servico {
     transition: 0.3s;
 }
+
+/* Cadastro */
+
+.erro {
+    color: red;
+    font-size: 14px;
+}
+
+.formulario {
+    width: 400px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+}
+
+.form-group input {
+    width: calc(100% - 10px);
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: #0056b3;
+}
+
+.mensagem-sucesso {
+    color: green;
+}
+
+/* login */
+
+.login-container {
+    width: 400px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-form {
+    text-align: center;
+}
+
+.login-form-group {
+    margin-bottom: 20px;
+}
+
+.login-label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.login-input[type="email"],
+.login-input[type="password"] {
+    width: calc(100% - 10px);
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.login-erro {
+    color: red;
+    margin-bottom: 10px;
+}
+
+.login-btn-submit {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-btn-submit:hover {
+    background-color: #0056b3;
+}
+
+.mensagem-sucesso-login {
+    color: green;
+}
