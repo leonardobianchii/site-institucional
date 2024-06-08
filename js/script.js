@@ -1,3 +1,90 @@
+// Função para obter a pontuação acumulada do usuário do armazenamento local
+function getPontuacaoUsuario(usuario) {
+    return usuario ? parseFloat(localStorage.getItem(usuario.email)) || 0 : 0;
+}
+
+function salvarPontuacaoUsuario(usuario, pontuacao) {
+    // Obter a pontuação anterior e somar com a nova pontuação
+    var pontuacaoAnterior = getPontuacaoUsuario(usuario);
+    var pontuacaoNova = pontuacaoAnterior + pontuacao;
+    localStorage.setItem(usuario.email, pontuacaoNova.toString());
+}
+
+// Atualizar a pontuação do usuário na caixa lateral
+function atualizarPontuacaoUsuario(pontuacao) {
+    var elementoPontuacao = document.getElementById("pontuacao-usuario-valor");
+    if (elementoPontuacao) {
+        elementoPontuacao.textContent = pontuacao.toFixed(2) + " pontos";
+    }
+}
+
+// Ao carregar a página, atualize a pontuação do usuário
+window.onload = function() {
+    var usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
+    pontuacaoAcumulada = getPontuacaoUsuario(usuarioLogado); 
+    atualizarPontuacaoUsuario(pontuacaoAcumulada);
+    atualizarRanking();
+};
+
+// Função para despejar materiais e atualizar a pontuação do usuário
+function despejarMateriais() {
+    var tipoMaterial = document.getElementById("tipo-material").value;
+    var quantidade = parseFloat(document.getElementById("quantidade-material").value);
+    var pontuacao = 0;
+
+    switch (tipoMaterial) {
+        case "metal":
+            pontuacao = quantidade * 0.010;
+            break;
+        case "papel":
+            pontuacao = quantidade * 0.040;
+            break;
+        case "plastico":
+            pontuacao = quantidade * 0.050;
+            break;
+        case "vidro":
+            pontuacao = quantidade * 0.020;
+            break;
+        default:
+            pontuacao = quantidade * 0.080;
+            break;
+    }
+
+    // Somar a pontuação do novo material à pontuação acumulada global
+    pontuacaoAcumulada += pontuacao;
+
+    // Atualize a pontuação do usuário no armazenamento local
+    var usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
+    salvarPontuacaoUsuario(usuarioLogado, pontuacaoAcumulada);
+
+    // Atualize a pontuação do usuário na caixa lateral
+    atualizarPontuacaoUsuario(pontuacaoAcumulada);
+
+    var mensagem = document.getElementById('mensagem');
+    mensagem.innerText = "Você depositou " + pontuacao.toFixed(2) + " pontos. Sua pontuação atualizada é: " + pontuacaoAcumulada.toFixed(2);
+    mensagem.style.display = "block";
+
+    // Limpar os campos após o depósito
+    document.getElementById('tipo-material').value = 'metal';
+    document.getElementById('quantidade-material').value = '';
+}
+
+// Função para exibir o histórico de doações no modal
+function openHistoricoModal() {
+    // Código para recuperar e exibir o histórico de doações
+    var historico = ''; // Aqui você pode obter o histórico de doações, por exemplo, de uma variável ou do armazenamento local
+    document.getElementById('historico-conteudo').innerText = historico;
+    document.getElementById('historicoModal').style.display = 'block';
+}
+
+// Função para exibir o menu de pontuação no modal
+function openPontuacaoModal() {
+    // Código para exibir o menu de pontuação
+    var pontuacaoMenu = ''; // Aqui você pode definir o conteúdo do menu de pontuação
+    document.getElementById('pontuacao-conteudo').innerHTML = pontuacaoMenu;
+    document.getElementById('pontuacaoModal').style.display = 'block';
+}
+
 // Função para validar o cadastro do usuário
 function validarCadastro() {
     var nome = document.getElementById('nome').value;
@@ -183,103 +270,6 @@ document.getElementById('btnLogin').addEventListener('click', function() {
     }
 });
 
-// Modal Servicos
-
-function abrirModal(idModal) {
-    document.getElementById(idModal).style.display = "flex";
-}
-
-function fecharModal(idModal) {
-    document.getElementById(idModal).style.display = "none";
-}
-
-// Função para obter a pontuação acumulada do usuário do armazenamento local
-function getPontuacaoUsuario(usuario) {
-    return usuario ? parseFloat(localStorage.getItem(usuario.email)) || 0 : 0;
-}
-
-function salvarPontuacaoUsuario(usuario, pontuacao) {
-    // Obter a pontuação anterior e somar com a nova pontuação
-    var pontuacaoAnterior = getPontuacaoUsuario(usuario);
-    var pontuacaoNova = pontuacaoAnterior + pontuacao;
-    localStorage.setItem(usuario.email, pontuacaoNova.toString());
-}
-
-// Atualizar a pontuação do usuário na caixa lateral
-function atualizarPontuacaoUsuario(pontuacao) {
-    var elementoPontuacao = document.getElementById("pontuacao-usuario-valor");
-    if (elementoPontuacao) {
-        elementoPontuacao.textContent = pontuacao.toFixed(2) + " pontos";
-    }
-}
-
-// Ao carregar a página, atualize a pontuação do usuário
-window.onload = function() {
-    var usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
-    pontuacaoAcumulada = getPontuacaoUsuario(usuarioLogado); 
-    atualizarPontuacaoUsuario(pontuacaoAcumulada);
-    atualizarRanking();
-};
-
-// Função para despejar materiais e atualizar a pontuação do usuário
-function despejarMateriais() {
-    var tipoMaterial = document.getElementById("tipo-material").value;
-    var quantidade = parseFloat(document.getElementById("quantidade-material").value);
-    var pontuacao = 0;
-
-    switch (tipoMaterial) {
-        case "metal":
-            pontuacao = quantidade * 0.010;
-            break;
-        case "papel":
-            pontuacao = quantidade * 0.040;
-            break;
-        case "plastico":
-            pontuacao = quantidade * 0.050;
-            break;
-        case "vidro":
-            pontuacao = quantidade * 0.020;
-            break;
-        default:
-            pontuacao = quantidade * 0.080;
-            break;
-    }
-
-    // Somar a pontuação do novo material à pontuação acumulada global
-    pontuacaoAcumulada += pontuacao;
-
-    // Atualize a pontuação do usuário no armazenamento local
-    var usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
-    salvarPontuacaoUsuario(usuarioLogado, pontuacaoAcumulada);
-
-    // Atualize a pontuação do usuário na caixa lateral
-    atualizarPontuacaoUsuario(pontuacaoAcumulada);
-
-    var mensagem = document.getElementById('mensagem');
-    mensagem.innerText = "Você depositou " + pontuacao.toFixed(2) + " pontos. Sua pontuação atualizada é: " + pontuacaoAcumulada.toFixed(2);
-    mensagem.style.display = "block";
-
-    // Limpar os campos após o depósito
-    document.getElementById('tipo-material').value = 'metal';
-    document.getElementById('quantidade-material').value = '';
-}
-
-// Função para exibir o histórico de doações no modal
-function openHistoricoModal() {
-    // Código para recuperar e exibir o histórico de doações
-    var historico = ''; // Aqui você pode obter o histórico de doações, por exemplo, de uma variável ou do armazenamento local
-    document.getElementById('historico-conteudo').innerText = historico;
-    document.getElementById('historicoModal').style.display = 'block';
-}
-
-// Função para exibir o menu de pontuação no modal
-function openPontuacaoModal() {
-    // Código para exibir o menu de pontuação
-    var pontuacaoMenu = ''; // Aqui você pode definir o conteúdo do menu de pontuação
-    document.getElementById('pontuacao-conteudo').innerHTML = pontuacaoMenu;
-    document.getElementById('pontuacaoModal').style.display = 'block';
-}
-
 function atualizarRanking() {
     var usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
 
@@ -311,3 +301,14 @@ function atualizarRanking() {
         rankingList.appendChild(rankingItem);
     }
 }
+
+// Modal Servicos
+
+function abrirModal(idModal) {
+    document.getElementById(idModal).style.display = "flex";
+}
+
+function fecharModal(idModal) {
+    document.getElementById(idModal).style.display = "none";
+}
+
